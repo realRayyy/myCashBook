@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: #f5f4f9;
+}
+
+header{
+    display: flex;
+    align-items: flex-end;
+    position: fixed;
+    background-color: #ebeff2;
+    height: 8%;
+    width: 100%;
+    z-index: 1;
+}
+
+header p{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    margin: 20px;
+    bottom: -12%;
+}
+
+header div{
+    flex: 1;
+}
+
+header img{
+    position: relative;
+    height: 35%;
+    width: auto;
+    margin: 20px;
+    bottom: -8%;
+}
+
+header img:nth-child(1){
+    height: 30%;
+}
+
+.content{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10%;
+    background-color: #ffffff;
+    height: 15%;
+    width: 95%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    padding: 4% 0;
+}
+
+.content > div{
+    height: 33%;
+    margin: 0 5%;
+}
+
+.content-top p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+.content-middle p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+
+.content-bottom p{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+}
+
+.btn-switch{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 27%;
+    height: 4%;
+    width: 100%;
+}
+
+.btn-active{
+    background-color: #0f9570;
+}
+
+.btn-active p{
+    color: white;
+}
+
+.btn-notactive{
+    background-color: #deecec;
+}
+
+.btn-notactive p{
+    color: #0f9570;
+}
+
+.btn-switch > [class^="btn"]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+    height: 100%;
+    width: 17%;
+    border-radius: 5px;
+}
+
+.btn-switch p{
+    text-align: center;
+}
+
+.btn-switch div:nth-child(1){
+    flex: 1;
+}
+
+.changeTime{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.changeTime img{
+    margin-left: 5px;
+    height: 35%;
+    width: auto;
+}
+
+.barChart{
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 26%;
+    width: 95%;
+    background-color: white;
+}
+
+.pieChart{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 32.5%;
+    width: 95%;
+    background-color: white;
+}

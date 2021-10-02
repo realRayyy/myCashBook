@@ -1,0 +1,21 @@
+.ripple{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    background-color: rgb(255, 254, 254);
+    border-radius: 50%;
+    animation: ripple 0.5s;
+}
+
+@keyframes ripple{
+    0%{
+        width: 0px;
+        height: 0px;
+        opacity: 0.3;
+    }
+    100%{
+        width: 400px;
+        height: 400px;
+        opacity: 0.5;
+    }
+}

@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/btn-click.css">
     <title>Document</title>
 </head>
 <body>
     <header>
         <p>我的记账本</p>     
+        <div></div>
+        <div id="search"><img src="icon/search.png" ></div>
     </header>
     <div class="content">
         <div class="content-top">
             <p class="title">本月支出</p>
             <p class="message">暂无支出</p>
+            <img class="eye" src="icon/eye-open.png">
         </div>
+        
         <div class="content-middle">
             <p class="text-left">暂无收入</p>
             <p class="text-middle"></p>
             <p class="text-right">未设置预算</p>
         </div>
         <div class="content-bottom">
-
+            <img src="icon/check.png">
         </div>
 
     </div>
@@ -32,12 +37,15 @@
     </div>
     <div class="btn">
         <div class="btn-middle">
-            <p>记一笔...</p>
+            <div>
+                <img src="icon/pen1.png">
+                <p class="pen">记一笔...</p>
+            </div>
         </div>
         <div class="btn-right">
-            
+            <img src="icon/menu1.png">
         </div>
     </div>
-
+    <script type="text/javascript" src="js/btn-click.js"></script>
 </body>
 </html>
