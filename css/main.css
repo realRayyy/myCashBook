@@ -58,6 +58,7 @@ header img{
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .title{
@@ -72,6 +73,7 @@ header img{
 }
 
 .content-top{
+    position: relative;
     height: auto;
     width: 100%;
     display: flex;
@@ -81,9 +83,20 @@ header img{
 .eye{
     position: absolute;
     right: 10%;
-    top: 34%;
+    top: 75%;
     transform: translateY(-50%);
-    width: 8%;
+    width: 12%;
+    height: 50%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.eye img{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
     height: auto;
 }
 

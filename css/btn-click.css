@@ -2,9 +2,10 @@
     position: absolute;
     transform: translate(-50%,-50%);
     z-index: 2;
-    background-color: rgb(255, 254, 254);
+    background-color: grey;
     border-radius: 50%;
-    animation: ripple 0.5s;
+    animation: ripple 1.25s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes ripple{
@@ -14,8 +15,8 @@
         opacity: 0.3;
     }
     100%{
-        width: 400px;
-        height: 400px;
+        width: 800px;
+        height: 800px;
         opacity: 0.5;
     }
 }
