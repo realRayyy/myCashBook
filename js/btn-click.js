@@ -13,16 +13,9 @@ function getLeft(e){
 var btnSearch = document.getElementById("search");
 var cirSearch;
 
-function ripple(el, btn){
-    let x = el.touches[0].clientX - btn.offsetLeft;             
-    let y = el.touches[0].clientY - btn.offsetTop;
-    console.log(el.touches[0].clientX);
-    console.log(btn.offsetLeft);
-    console.log(btn.offsetParent);
-    console.log(el.touches[0].clientY);
-    console.log(btn.offsetTop); 
-    console.log(getLeft(btn));
-    console.log(getTop(btn));          
+function ripple(el, btn, height, width){
+    let x = el.touches[0].clientX - btn.offsetLeft + width;             
+    let y = el.touches[0].clientY - btn.offsetTop + height; 
     let circle = document.createElement('span');
     circle.className = 'ripple';       
     circle.style.left = x + 'px';     
@@ -36,19 +29,21 @@ function removeRipple(btn, circle){
 }
 
 btnSearch.addEventListener('touchstart', function(el){
-    cirSearch = ripple(el, btnSearch);
+    cirSearch = ripple(el, btnSearch, 0, 0);
 });
 
 btnSearch.addEventListener('touchend' ,function(el){
     setTimeout("removeRipple(btnSearch, cirSearch)", 100);
 });
 
+//此处有bug仍未处理
 var btnEye = document.getElementById("eye");
 var cirEye;
 
 btnEye.addEventListener('touchstart', function(el){
     el.stopPropagation();
-    cirEye = ripple(el, btnEye);
+    let h = btnEye.offsetHeight / 2;
+    cirEye = ripple(el, btnEye, h, 0);
 });
 
 btnEye.addEventListener('touchend' ,function(el){
@@ -61,10 +56,14 @@ var cirContent;
 
 btnContent.addEventListener('touchstart', function(el){
     el.stopPropagation();
-    cirContent = ripple(el, btnContent);
+    let w = btnContent.offsetWidth / 2;
+    cirContent = ripple(el, btnContent, 0, w);
 });
 
 btnContent.addEventListener('touchend' ,function(el){
     el.stopPropagation();
     setTimeout("removeRipple(btnContent, cirContent)", 100);
 });
+
+
+

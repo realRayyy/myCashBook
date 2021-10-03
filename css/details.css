@@ -26,7 +26,7 @@ header p{
     bottom: -12%;
 }
 
-header div{
+header div:nth-child(3){
     flex: 1;
 }
 
@@ -38,8 +38,36 @@ header img{
     bottom: -8%;
 }
 
-header img:nth-child(1){
-    height: 30%;
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0 0.5rem;
+    bottom: 15%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.delete{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0 0.5rem;
+    bottom: 15%;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+header img{
+    position: relative;
+    height: 50%;
+    width: auto;
 }
 
 .content{

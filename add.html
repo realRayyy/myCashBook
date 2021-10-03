@@ -5,49 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/add.css">
+    <link rel="stylesheet" type="text/css" href="css/btn-click.css">
     <title>Document</title>
 </head>
 <body>
     <header>
+        <div class="close" id="close"><img src="icon/close.png"></div>
+        <div style="flex: 1;"></div>
         <p class="pay">支出</p>
         <p class="get">收入</p>
+        <div style="flex: 1;"></div>
+        <div style="flex: 1;"></div>
     </header>
     <div class="content">
         <div class="content-top">
-            <div class="content-top-left"><img src="icon/01.png"><p>其他</p></div>
+            <div class="content-top-left"><img id="img-main" src="icon/01_active.png"><p id="text-main">其他</p></div>
             <div></div>
-            <div class="content-top-right"><p>¥</p><p>0</p></div>
+            <div class="content-top-right"><p>¥</p><p id="text-number">0</p></div>
         </div>
-        <div class="content-middle">
-            <div><img src="icon/01.png"><p>其它</p></div>
-            <div><img src="icon/02.png"><p>餐饮</p></div>
-            <div><img src="icon/03.png"><p>交通</p></div>
-            <div><img src="icon/04.png"><p>购物</p></div>
+        <div class="content-middle" id="content-middle">
+            <div id="01"><img id="img-01" src="icon/01_active.png"><p>其它</p></div>
+            <div id="02"><img id="img-02" src="icon/02.png"><p>餐饮</p></div>
+            <div id="03"><img id="img-03" src="icon/03.png"><p>交通</p></div>
+            <div id="04"><img id="img-04"src="icon/04.png"><p>购物</p></div>
+            <div id="05"><img id="img-05"src="icon/05.png"><p>服饰</p></div>
+            <div><img src="icon/05.png"><p>服饰</p></div>
+            <div><img src="icon/05.png"><p>服饰</p></div>
+            <div><img src="icon/05.png"><p>服饰</p></div>
+            <div><img src="icon/05.png"><p>服饰</p></div>
             <div><img src="icon/05.png"><p>服饰</p></div>
         </div>
-        <div class="content-bottom">
-            <div><img src="icon/06.png"><p>日用品</p></div>
-            <div><img src="icon/07.png"><p>娱乐</p></div>
-            <div><img src="icon/08.png"><p>食材</p></div>
-            <div><img src="icon/09.png"><p>零食</p></div>
+        <div class="content-bottom" id="content-bottom">
+            <div id="06"><img id="img-06" src="icon/06.png"><p>日用品</p></div>
+            <div id="07"><img id="img-07" src="icon/07.png"><p>娱乐</p></div>
+            <div id="08"><img id="img-08" src="icon/08.png"><p>食材</p></div>
+            <div id="09"><img id="img-09" src="icon/09.png"><p>零食</p></div>
+            <div id="10"><img id="img-10" src="icon/10.png"><p>烟茶酒</p></div>
+            <div><img src="icon/10.png"><p>烟茶酒</p></div>
+            <div><img src="icon/10.png"><p>烟茶酒</p></div>
+            <div><img src="icon/10.png"><p>烟茶酒</p></div>
+            <div><img src="icon/10.png"><p>烟茶酒</p></div>
             <div><img src="icon/10.png"><p>烟茶酒</p></div>
         </div>
     </div>
     <div class="remarks">
-        <div class="remarks-left"><p>添加备注</p></div>
+        <div class="remarks-left" id="remarks-left"><p id="remarks-text">添加备注</p></div>
         <div class="remarks-right"></div>
     </div>
     <div class="keyboard">
         <div class="number">
-            <div><p class="keyboard-text">1</p></div> <div><p class="keyboard-text">2</p></div> <div><p class="keyboard-text">3</p></div>
-            <div><p class="keyboard-text">4</p></div> <div><p class="keyboard-text">5</p></div> <div><p class="keyboard-text">6</p></div>
-            <div><p class="keyboard-text">7</p></div> <div><p class="keyboard-text">8</p></div> <div><p class="keyboard-text">9</p></div>
-            <div><p class="keyboard-text">清零</p></div> <div><p class="keyboard-text">0</p></div> <div><p class="keyboard-text">.</p></div>
+            <div id="1"><p class="keyboard-text">1</p></div> <div id="2"><p class="keyboard-text">2</p></div> <div id="3"><p class="keyboard-text">3</p></div>
+            <div id="4"><p class="keyboard-text">4</p></div> <div id="5"><p class="keyboard-text">5</p></div> <div id="6"><p class="keyboard-text">6</p></div>
+            <div id="7"><p class="keyboard-text">7</p></div> <div id="8"><p class="keyboard-text">8</p></div> <div id="9"><p class="keyboard-text">9</p></div>
+            <div id="remove"><p class="keyboard-text">清零</p></div> <div id="0"><p class="keyboard-text">0</p></div> <div id="point"><p class="keyboard-text">.</p></div>
         </div>
         <div class="side">
-            <div class="keyboard-delete"><p>⬅</p></div>
+            <div class="keyboard-delete" id="text-delete"><p>⬅</p></div>
             <div class="keyboard-confirm"><p>确定</p></div>
         </div>
     </div>
+    <div class="alert" id="alert">
+        <div class="alert-content" id="alert-content">
+            <div class="alert-title"><p>添加备注</p></div>
+            <div class="alert-input"><textarea placeholder="备注" id="alert-text"></textarea></div>
+            <div class="alert-btn">
+                <div class="btn-cancel" id="btn-cancel"><p>取消</p></div>
+                <div class="btn-confirm" id="btn-confirm"><p>确认</p></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/add.js"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@ body{
 header{
     display: flex;
     justify-content: center;
+    align-content: center;
     position: fixed;
     background-color: #ebeff2;
     height: 8%;
@@ -21,6 +22,24 @@ header p{
     font-size: 18px;
     margin: 20px 18px;
     bottom: 0;
+}
+
+.close{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    bottom: -10%;
+    margin: 0 0.5rem;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+header img{
+    height: 50%;
+    width: auto;
 }
 
 .content{
@@ -86,7 +105,14 @@ header p{
     bottom: 2px;
 }
 
+.content-middle{
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 .content-middle div{
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -131,9 +157,15 @@ header p{
     margin: 0 auto;
 }
 
+.content-bottom{
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 .keyboard{
     position: absolute;
-    top: 65%;
+    top: 75%;
     height: 25%;
     width: 100%;
     display: flex;
@@ -201,10 +233,18 @@ header p{
     text-align: center;
 }
 
+.number > div:active{
+    background-color: #dddddd;
+}
+
+.side > div:active{
+    background-color: #dddddd;
+}
+
 .remarks{
     display: flex;
     position: absolute;
-    top: 60%;
+    top: 70%;
     height: 5%;
     width: 100%;
     background-color: white;
@@ -222,4 +262,106 @@ header p{
     margin: 0 5%;
     font-size: 14px;
     color: #9e9e9e;
+}
+
+.alert{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: 1s;
+}
+
+.alert-content{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    top: 73%;  
+    height: 27%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.alert-title{
+    display: flex;
+    align-items: flex-end;
+    height: 18%;
+    width: 100%;
+}
+
+.alert-title p{
+    margin: 5px 15px;
+    font-size: 18px;
+}
+
+.alert-input{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    box-sizing: border-box;
+    height: 43%;
+    width: 96%;
+    margin: 15px;
+}
+
+.alert-input textarea{    
+    border: 0;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+.alert-input textarea:focus{
+    border: 0;
+}
+
+.alert-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35%;
+}
+
+.alert-btn div{
+    margin: 15px;
+    height: 60%;
+    width: 43%;
+    border-radius: 50px;
+}
+
+.btn-cancel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #0f9570;
+}
+
+.btn-cancel p{
+    color: #0f9570;
+    font-size: 20px;
+}
+
+.btn-confirm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0f9570;
+    border: 1px solid #0f9570;
+}
+
+.btn-confirm p{
+    color: white;
+    font-size: 20px;
+}
+
+.btn-cancel:active{
+    background-color: #e0e0e0;
+}
+
+.btn-confirm:active{
+    background-color: #018560;
 }

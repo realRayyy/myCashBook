@@ -4,7 +4,7 @@
     z-index: 2;
     background-color: grey;
     border-radius: 50%;
-    animation: ripple 1.25s;
+    animation: ripple 0.5s;
     animation-fill-mode: forwards;
 }
 

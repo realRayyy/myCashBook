@@ -266,3 +266,76 @@ header img{
     color: black;
 }
 
+.alert{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: 1s;
+}
+
+.alert-content{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    box-sizing: border-box;
+    position: relative;
+    top: 63%;  
+    height: 40%;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #f5f4f9;
+}
+
+.alert-blocks{
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+    margin-bottom: 0;
+    width: 95%;
+    height: 70%;
+}
+
+.alert-blocks > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    margin: 0 3%;
+    width: 25%;
+    height: 40%;
+    background-color: white;
+}
+
+.alert-img{
+    margin: 0.5rem 0.5rem;
+    position: relative;
+    height: auto;
+    width: 30%;
+}
+.img-little{
+    margin: 0.8rem 0;
+}
+
+.alert-text{
+    margin: 0.5rem;
+}
+
+.alert-close{
+    margin: auto;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+
+.alert-close > img{
+    height: 60%;
+    width: auto;
+}

@@ -17,14 +17,14 @@
     <div class="content" id="content">
         <div class="content-top">
             <p class="title">本月支出</p>
-            <p class="message">暂无支出</p>
+            <p class="message" id="message">暂无支出</p>
             <div class="eye" id="eye"><img src="icon/eye-open.png"></div>
         </div>
         
         <div class="content-middle">
-            <p class="text-left">暂无收入</p>
+            <p class="text-left" id="text-left">暂无收入</p>
             <p class="text-middle"></p>
-            <p class="text-right">未设置预算</p>
+            <p class="text-right" id="text-right">未设置预算</p>
         </div>
         <div class="content-bottom">
             <img src="icon/check.png">
@@ -46,6 +46,20 @@
             <img src="icon/menu1.png">
         </div>
     </div>
+    <div class="alert" id="alert">
+        <div class="alert-content" id="alert-content">
+            <div class="alert-blocks">
+                <div><img class="alert-img" src="icon/about.png"><p class="alert-text">关于</p></div>
+                <div><img class="alert-img" src="icon/settings.png"><p class="alert-text">设置</p></div>
+                <div><img class="alert-img img-little" src="icon/records.png"><p class="alert-text">账单记录</p></div>
+                <div><img class="alert-img" src="icon/details.png"><p class="alert-text">账单详情</p></div>
+            </div>
+            <div class="alert-close">
+                <img src="icon/alert-close.png">
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="js/btn-click.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
