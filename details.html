@@ -15,20 +15,24 @@
         <div></div>   
         <div class="delete" id="delete"><img src="icon/delete.png"></div>
     </header>
-    <div class="content">
+    <div class="content" id="content">
         <div class="content-top">
-            <img src="icon/01.png">
-            <div><p>其他</p></div>
+            <img id="content-img" src="icon/01.png">
+            <div><p id="text-top">其他</p></div>
         </div>
         <div class="content-middle">
             <p>备注</p>
+            <p style="flex: 1;"></p>
+            <p id="content-remark">--</p>
         </div>
         <div class="content-bottom">
             <p>时间</p>
+            <p style="flex: 1;"></p>
+            <p id="content-date">今天 00:00</p>
         </div>
 
     </div>
-    <div class="bottom">
+    <div class="bottom" id="bottom">
         <p>修改</p>
     </div>
     <script type="text/javascript" src="js/details.js"></script>

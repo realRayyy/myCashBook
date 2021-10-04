@@ -35,28 +35,37 @@
         <p class="text-pay">0.00元</p>
         <p class="text-get">0.00元</p>
     </div>
+    <div class="list" id="list">
+        
+    </div>
     <div class="btn">
         <div class="btn-middle">
             <div>
                 <img src="icon/pen1.png">
-                <p class="pen">记一笔...</p>
+                <p class="pen" id="pen">记一笔...</p>
             </div>
         </div>
-        <div class="btn-right">
+        <div class="btn-right" id="btn-menu">
             <img src="icon/menu1.png">
         </div>
     </div>
     <div class="alert" id="alert">
         <div class="alert-content" id="alert-content">
             <div class="alert-blocks">
-                <div><img class="alert-img" src="icon/about.png"><p class="alert-text">关于</p></div>
-                <div><img class="alert-img" src="icon/settings.png"><p class="alert-text">设置</p></div>
-                <div><img class="alert-img img-little" src="icon/records.png"><p class="alert-text">账单记录</p></div>
-                <div><img class="alert-img" src="icon/details.png"><p class="alert-text">账单详情</p></div>
+                <div id="about"><img class="alert-img" src="icon/about.png"><p class="alert-text">关于</p></div>
+                <div id="settings"><img class="alert-img" src="icon/settings.png"><p class="alert-text">设置</p></div>
+                <div id="records"><img class="alert-img img-little" src="icon/records.png"><p class="alert-text">账单记录</p></div>
+                <div id="details"><img class="alert-img" src="icon/details.png"><p class="alert-text">账单详情</p></div>
             </div>
-            <div class="alert-close">
+            <div class="alert-close" id="alert-close">
                 <img src="icon/alert-close.png">
             </div>
+        </div>
+    </div>
+    <div class="long-click" id="long-click">
+        <div class="long-click-content">
+            <div class="long-click-text" id="long-click-change"><p>修改</p></div>
+            <div class="long-click-text" id="long-click-delete"><p>删除</p></div>
         </div>
     </div>
     <script type="text/javascript" src="js/btn-click.js"></script>

@@ -81,6 +81,7 @@ header img{
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .content div{
@@ -111,16 +112,24 @@ header img{
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.content-middle p{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+.content-middle{
+    display: flex;
+    align-items: center;
 }
 
-.content-bottom p{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+#content-remark{
+    font-size: 14px;
+    color: grey;
+}
+
+#content-date{
+    font-size: 14px;
+    color: grey;
+}
+
+.content-bottom{
+    display: flex;
+    align-items: center;
 }
 
 .bottom{
@@ -130,6 +139,7 @@ header img{
     height: 6.5%;
     width: 100%;
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .bottom p{

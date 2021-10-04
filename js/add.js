@@ -4,8 +4,6 @@ function ripple(el, btn, height, width){
     let x = el.touches[0].clientX - btn.offsetLeft + width;             
     let y = el.touches[0].clientY - btn.offsetTop + height; 
     let circle = document.createElement('span');
-    console.log(x);
-    console.log(y);
     circle.className = 'ripple';       
     circle.style.left = x + 'px';     
     circle.style.top = y + 'px';   
@@ -152,3 +150,70 @@ confirm.addEventListener('click', function(){
         remarksText.innerText = "添加备注";
     }
 })
+
+// 数据传递
+
+var addNow = localStorage.getItem("addNow");
+var dataNow;
+
+var btnConfirm = document.getElementById("keyboard-confirm");
+if(!localStorage.getItem("times")){
+    localStorage.setItem("times", "0");
+}
+
+btnConfirm.addEventListener('click', function(){
+    let s = Number(numberText.innerText);
+    let r = "";
+    let picT = Number(active);
+    if(remarksText.innerText !== "添加备注"){
+        r = remarksText.innerText;
+    }
+    //let info = sum.toString() + "," + picType.toString() + "," + remarks;
+    let obj = {
+        sum: s,
+        remarks: r,
+        picType: picT
+    }
+    let info = JSON.stringify(obj);
+    let t;
+    if(addNow !== null){
+        t = addNow;
+        localStorage.setItem("list-" + t, info);
+        let addNowHref = localStorage.getItem("addNowHref");
+        localStorage.removeItem("addNow");
+        window.location.href = addNowHref;
+    }
+    else{
+        t = localStorage.getItem("times");
+        t = Number(t) + 1;
+        t = t.toString();
+        localStorage.setItem("times", t);
+        localStorage.setItem("list-" + t, info);
+        window.location.href = "main.html";
+    }
+})
+
+// 页面加载
+
+if(addNow !== null){
+    infoNow = localStorage.getItem("list-" + addNow);
+    dataNow = JSON.parse(infoNow);
+    let picT;
+    if(dataNow.picType < 10){
+        picT = "0" + dataNow.picType.toString();
+    }
+    else{
+        picT = dataNow.picType.toString();
+    }
+    mainImg.src = "icon/" + picT + "_active.png"; 
+    activeImg.src = "icon/" + active + ".png";
+    let img = document.getElementById("img-" + picT);
+    img.src = "icon/" + picT + "_active.png";
+    activeImg = img;
+    active = picT;
+    mainText.innerText = text[dataNow.picType];
+    if(dataNow.remarks !== ""){
+        remarksText.innerText = dataNow.remarks;
+    }
+    numberText.innerText = dataNow.sum;
+}
