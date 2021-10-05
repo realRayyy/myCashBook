@@ -3,8 +3,19 @@
     margin: 0;
 }
 
+html{
+    position: absolute;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
 body{
+    position: absolute;
     background-color: #f5f4f9;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 header{
@@ -22,6 +33,37 @@ header p{
     font-size: 18px;
     margin: 20px 18px;
     bottom: 0;
+}
+
+.header-active{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-active > div{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-active p{
+    box-sizing: border-box;
+    font-weight: 600;
+    border-bottom: 3px solid black;
+}
+
+.header-notactive p{
+    border-bottom: 3px solid #ebeff2;
+}
+
+.header-notactive{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close{
@@ -381,3 +423,29 @@ header img{
 .btn-confirm:active{
     background-color: #018560;
 }
+
+.main{
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    width: 200%;
+    height: 100%;
+    transition: transform 0.5s;
+}
+
+.main-left{
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+}
+
+.main-right{
+    display: flex;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transition: transform 1s;
+}
+

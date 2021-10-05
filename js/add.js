@@ -58,6 +58,32 @@ for(let i = 1; i <= 10; i++){
     })
 }
 
+var activeR = "01";
+var activeImgR = document.getElementById("r-img-01");
+var mainImgR = document.getElementById("r-img-main");
+var mainTextR = document.getElementById("r-text-main");
+var textR = ["", "其它", "餐饮", "交通", "购物", "服饰", "日用品", "娱乐", "食材", "零食", "烟茶酒"];
+
+for(let i = 1; i <= 10; i++){
+    let s; //记录当前选择的图标序号
+    if(i == 10){
+        s = i.toString();
+    }
+    else{
+        s = "0" + i.toString();
+    }
+    let el = document.getElementById("r-" + s);
+    el.addEventListener('click', function(){
+        let img = document.getElementById("r-img-" + s);
+        activeImgR.src = "icon/" + active + ".png";
+        mainImgR.src = "icon/" + s + "_active.png";
+        img.src = "icon/" + s + "_active.png";
+        mainTextR.innerText = text[Number(s)];
+        activeR = s;
+        activeImgR = img;
+    })
+}
+
 // 数字键盘
 
 var numberText = document.getElementById("text-number");
@@ -107,6 +133,52 @@ for(let i = 0; i <= 9; i++){
 }
 
 
+var numberTextR = document.getElementById("r-text-number");
+
+for(let i = 0; i <= 9; i++){
+    let s = i.toString();
+    let el = document.getElementById("r-" + s);
+    el.addEventListener('click', function(){
+        if(numberTextR.innerText === "0"){
+            if(s !== "0"){
+                numberTextR.innerText = s;
+            }
+        }
+        else{
+            numberTextR.innerText += s;
+        }
+    })
+}
+
+{
+    let el = document.getElementById("r-remove");
+    el.addEventListener('click', function(){
+        numberTextR.innerText = "0";
+    })
+}
+
+{
+    let el = document.getElementById("r-point");
+    el.addEventListener('click', function(){
+        numberTextR.innerText += ".";
+    })
+}
+
+{
+    let el = document.getElementById("r-text-delete");
+    el.addEventListener('click', function(){
+        let s = numberTextR.innerText;
+        if(s !== "0"){        
+            if(s.length > 1){
+                numberTextR.innerText = s.substring(0, s.length - 1);
+            }
+            else{
+                numberTextR.innerText = "0";
+            }
+        }
+    })
+}
+
 //添加备注
 
 const innerHeight = window.innerHeight;
@@ -148,6 +220,47 @@ confirm.addEventListener('click', function(){
     }
     else{
         remarksText.innerText = "添加备注";
+    }
+})
+
+window.addEventListener('resize', () => {
+    const newInnerHeight = window.innerHeight;
+    if(innerHeight > newInnerHeight){
+        let el = document.getElementById("r-alert-content");
+        el.style.top = "38.5%";
+    } 
+    else{
+        let el = document.getElementById("r-alert-content");
+        el.style.top = "73%";
+    }
+});
+
+var alertTextR = document.getElementById("r-alert-text");
+var remarksTextR = document.getElementById("r-remarks-text");
+var remarkR = document.getElementById("r-remarks-left");
+var alR = document.getElementById("r-alert");
+remarkR.addEventListener('click', function(){
+    alR.style.display = "block";
+    if(remarksTextR.innerText !== "添加备注"){
+        alertTextR.value = remarksTextR.innerText;
+    }
+})
+
+var cancelR = document.getElementById("r-btn-cancel");
+cancelR.addEventListener('click', function(){
+    alR.style.display = "none";
+})
+
+var confirmR = document.getElementById("r-btn-confirm");
+
+
+confirmR.addEventListener('click', function(){
+    alR.style.display = "none";
+    if(alertTextR.value !== ""){
+        remarksTextR.innerText = alertTextR.value;
+    }
+    else{
+        remarksTextR.innerText = "添加备注";
     }
 })
 
@@ -253,4 +366,39 @@ else{
 
 btnClose.addEventListener('click', function(){
     window.location.href = "details.html";
+})
+
+// 界面切换
+
+var leftStartX, leftEndX, rightStartX, rightEndX;
+var mainLeft = document.getElementById("main-left");
+var mainRight = document.getElementById("main-right");
+var main = document.getElementById("main");
+var headerLeft = document.getElementById("header-left");
+var headerRight = document.getElementById("header-right");
+
+mainLeft.addEventListener('touchstart', function(el){
+    leftStartX = el.touches[0].clientX;
+})
+
+mainLeft.addEventListener('touchend', function(el){
+    leftEndX = el.changedTouches[0].clientX;
+    if(leftEndX - leftStartX < -50){
+        headerLeft.className = "header-notactive";
+        headerRight.className = "header-active";
+        main.style.transform = "translateX(-50%)";
+    }
+})
+
+mainRight.addEventListener('touchstart', function(el){
+    leftStartX = el.touches[0].clientX;
+})
+
+mainRight.addEventListener('touchend', function(el){
+    leftEndX = el.changedTouches[0].clientX;
+    if(leftEndX - leftStartX > 50){
+        headerRight.className = "header-notactive";
+        headerLeft.className = "header-active";
+        main.style.transform = "none";
+    }
 })
