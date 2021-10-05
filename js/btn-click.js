@@ -159,3 +159,33 @@ btnLongClickDelete.addEventListener('touchend' ,function(el){
     clearTimeout(longClickDeleteTimer);
     longClickDeleteTimer = setTimeout("removeRipple(btnLongClickDelete, cirLongClickDelete)", 100);
 });
+
+var btnDeleteCancel = document.getElementById("delete-cancel");
+var cirDeleteCancel;
+var deleteCancelTimer;
+
+btnDeleteCancel.addEventListener('touchstart', function(el){
+    el.stopPropagation();
+    cirDeleteCancel = ripple(el, btnDeleteCancel, 0, 0);
+});
+
+btnDeleteCancel.addEventListener('touchend' ,function(el){
+    el.stopPropagation();
+    clearTimeout(deleteCancelTimer);
+    deleteCancelTimer = setTimeout("removeRipple(btnDeleteCancel, cirDeleteCancel)", 100);
+});
+
+var btnDeleteConfirm = document.getElementById("delete-confirm");
+var cirDeleteConfirm;
+var deleteConfirmTimer;
+
+btnDeleteConfirm.addEventListener('touchstart', function(el){
+    el.stopPropagation();
+    cirDeleteConfirm = ripple(el, btnDeleteConfirm, 0, 0);
+});
+
+btnDeleteConfirm.addEventListener('touchend' ,function(el){
+    el.stopPropagation();
+    clearTimeout(deleteConfirmTimer);
+    deleteConfirmTimer = setTimeout("removeRipple(btnDeleteConfirm, cirDeleteConfirm)", 100);
+});

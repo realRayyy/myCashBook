@@ -92,6 +92,12 @@ img.src = "icon/" + picT + "_active.png";
 var textTop = document.getElementById("text-top");
 textTop.innerText = text[data.picType];
 
+var textSum = document.getElementById("text-sum");
+textSum.innerText = "¥" + data.sum;
+
+var textDate = document.getElementById("content-date");
+textDate.innerText = "今天 " + data.dateTime;
+
 var textRemark = document.getElementById("content-remark");
 if(data.remarks){
     textRemark.innerText = data.remarks;
@@ -103,4 +109,28 @@ btnBottom.addEventListener('click', function(){
     localStorage.setItem("addNow", now);
     localStorage.setItem("addNowHref", "details.html");
     window.location.href = "add.html";
+})
+
+btnClose.addEventListener('click', function(){
+    window.location.href = "main.html";
+})
+
+// 删除
+
+var alertDelete = document.getElementById("alert-delete");
+
+btnDelete.addEventListener('click', function(){
+    alertDelete.style.display = "block";
+})
+
+var deleteConfirm = document.getElementById("delete-confirm");
+deleteConfirm.addEventListener('click', function(){
+    let detailNow = localStorage.getItem("detailNow");
+    localStorage.removeItem("list-" + detailNow);
+    window.location.href = "main.html";
+})
+
+var deleteCancel = document.getElementById("delete-cancel");
+deleteCancel.addEventListener('click', function(){
+    window.location.href = "details.html";
 })

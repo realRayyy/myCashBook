@@ -153,8 +153,10 @@ confirm.addEventListener('click', function(){
 
 // 数据传递
 
+var dateNow = new Date();
 var addNow = localStorage.getItem("addNow");
 var dataNow;
+var dateDay, dateTime, dayCheck;
 
 var btnConfirm = document.getElementById("keyboard-confirm");
 if(!localStorage.getItem("times")){
@@ -172,7 +174,11 @@ btnConfirm.addEventListener('click', function(){
     let obj = {
         sum: s,
         remarks: r,
-        picType: picT
+        picType: picT,
+        dateDay: dateDay,
+        dateTime: dateTime,
+        dayCheck: dayCheck,
+        dateText: dateText
     }
     let info = JSON.stringify(obj);
     let t;
@@ -194,6 +200,16 @@ btnConfirm.addEventListener('click', function(){
 })
 
 // 页面加载
+var dateText;
+
+function numToStr(num){
+    if(num >= 10){
+        return num.toString();
+    }
+    else{
+        return "0" + num.toString();
+    }
+}
 
 if(addNow !== null){
     infoNow = localStorage.getItem("list-" + addNow);
@@ -216,4 +232,25 @@ if(addNow !== null){
         remarksText.innerText = dataNow.remarks;
     }
     numberText.innerText = dataNow.sum;
+    date = document.getElementById("remarks-date");
+    dateDay = dataNow.dateDay;
+    dateTime = dataNow.dateTime;
+    dayCheck = dataNow.dayCheck;
+    dateText = dataNow.dateText;
+    date.innerText = dataNow.dateText;
 }
+else{
+    date = document.getElementById("remarks-date");
+    dateText = dateNow.getFullYear() + "年" + dateNow.getMonth() + "月" + dateNow.getDay() + "日" 
+                     + numToStr(dateNow.getHours()) + ":" + numToStr(dateNow.getMinutes());
+    date.innerText = dateText;                
+    dateDay = dateNow.getMonth() + "月" + dateNow.getDay() + "日";
+    dateTime = numToStr(dateNow.getHours()) + ":" + numToStr(dateNow.getMinutes());
+    dayCheck = dateNow.getDay();
+}
+
+//关闭页面
+
+btnClose.addEventListener('click', function(){
+    window.location.href = "details.html";
+})

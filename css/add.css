@@ -264,6 +264,22 @@ header img{
     color: #9e9e9e;
 }
 
+.remarks-right{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 60%;
+}
+
+.remarks-right p{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 5%;
+    font-size: 14px;
+    color: #9e9e9e;
+}
+
 .alert{
     position: absolute;
     width: 100%;

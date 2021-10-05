@@ -1,5 +1,6 @@
 // 数据重置
 localStorage.removeItem("addNow");
+localStorage.removeItem("detailNow");
 
 // 隐藏金额
 var textPay = document.getElementById("message");
@@ -91,10 +92,17 @@ var t = localStorage.getItem("times");
 var totalSum = 0;
 var longClick = document.getElementById("long-click");
 var timeCheck = 0;
+var dateToday = new Date();
 
 for(let i = 1; i <=t; i++){
     let info = localStorage.getItem("list-" + i.toString());
+    if(info === null){
+        continue;
+    }
     let data = JSON.parse(info);
+    if(data.dayCheck !== dateToday.getDay()){
+        continue;
+    }
     let picT;
     if(data.picType < 10){
         picT = "0" + data.picType.toString();
@@ -137,7 +145,7 @@ for(let i = 1; i <=t; i++){
     divRight.appendChild(divTextTop);
 
     let divTextBottom = document.createElement("p");
-    let TextBottom = document.createTextNode("今天 00:00");
+    let TextBottom = document.createTextNode("今天 " + data.dateTime);
     divTextBottom.className = "list-date";
     divTextBottom.appendChild(TextBottom);
     divRight.appendChild(divTextBottom);
@@ -158,6 +166,7 @@ for(let i = 1; i <=t; i++){
             //console.log("长按事件");
             longClick.style.display = "block";
             longClickCheck = 1;
+            localStorage.setItem("addNow", i.toString());
             setTimeout(function(){
                 timeCheck = 1;
             }, 500)
@@ -173,6 +182,7 @@ for(let i = 1; i <=t; i++){
         if(timer != 0 && longClickCheck == 0){
             //console.log("点击事件");
             localStorage.setItem("detailNow", i.toString());
+            localStorage.removeItem("addNow");
             window.location.href = "details.html";
         }
     })
@@ -187,4 +197,40 @@ longClick.addEventListener('touchstart', function(){
         timeCheck = 0;
         longClick.style.display = "none";
     }
+})
+
+// 删除与修改
+
+var longClickChange = document.getElementById("long-click-change");
+var touchCheck1 = 0, touchCheck2 = 0;
+longClickChange.addEventListener('touchstart', function(){
+    touchCheck1 = 1;
+})
+longClickChange.addEventListener('touchend', function(){
+    touchCheck1 = 0;
+    localStorage.setItem("addNowHref", "main.html");
+    window.location.href = "add.html"
+})
+
+var longClickDelete = document.getElementById("long-click-delete");
+var alertDelete = document.getElementById("alert-delete");
+longClickDelete.addEventListener('touchstart', function(){
+    touchCheck2 = 1;
+})
+longClickDelete.addEventListener('touchend', function(){
+    touchCheck2 = 0;
+    longClick.style.display = "none";
+    alertDelete.style.display = "block"
+})
+
+var deleteConfirm = document.getElementById("delete-confirm");
+deleteConfirm.addEventListener('click', function(){
+    let addNow = localStorage.getItem("addNow");
+    localStorage.removeItem("list-" + addNow);
+    window.location.href = "main.html";
+})
+
+var deleteCancel = document.getElementById("delete-cancel");
+deleteCancel.addEventListener('click', function(){
+    window.location.href = "main.html";
 })

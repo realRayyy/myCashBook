@@ -19,6 +19,8 @@
         <div class="content-top">
             <img id="content-img" src="icon/01.png">
             <div><p id="text-top">其他</p></div>
+            <div style="flex: 1;"></div>
+            <div style="margin-right: 0;"><p id="text-sum"></p></div>
         </div>
         <div class="content-middle">
             <p>备注</p>
@@ -28,12 +30,25 @@
         <div class="content-bottom">
             <p>时间</p>
             <p style="flex: 1;"></p>
-            <p id="content-date">今天 00:00</p>
+            <p id="content-date" id="content-date">今天 00:00</p>
         </div>
 
     </div>
     <div class="bottom" id="bottom">
         <p>修改</p>
+    </div>
+    <div class="alert-delete" id="alert-delete">
+        <div class="alert-delete-content">
+            <div class="delete-top"><p>确定删除？</p></div>
+            <div class="delete-bottom">
+                <div class="delete-btn" id="delete-cancel">
+                    <p>取消</p>
+                </div>
+                <div class="delete-btn" id="delete-confirm">
+                    <p>删除</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="js/details.js"></script>
 </body>
