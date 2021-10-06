@@ -7,7 +7,7 @@ var textPay = document.getElementById("message");
 var textGet = document.getElementById("text-left");
 var textBudget = document.getElementById("text-right");
 var eye = document.getElementById("eye");
-var tPay, tGet, tBudget, clickTimes = 0;
+var tPay, tGet, tBudget, clickTimes = 0, budget = -1;
 
 eye.addEventListener('click', function(){
     if(clickTimes === 0){
@@ -95,7 +95,7 @@ var longClick = document.getElementById("long-click");
 var timeCheck = 0;
 var dateToday = new Date();
 
-for(let i = 1; i <=t; i++){
+for(let i = t; i >= 1; i--){
     let info = localStorage.getItem("list-" + i.toString());
     if(info === null){
         continue;
@@ -208,11 +208,22 @@ for(let i = 1; i <=t; i++){
 }
 
 tPay = returnFloat(totalSum);
+document.getElementById("text-pay").innerText = tPay.toString() + "元";
 tPay = "¥" + tPay.toString();
 tGet = returnFloat(totalSumR);
+document.getElementById("text-get").innerText = tGet.toString() + "元";
 tGet = "¥" + tGet.toString();
+if(!localStorage.getItem("budget")){
+    tBudget = "未设置预算";
+}
+else{
+    budget = localStorage.getItem("budget");
+    tBudget = returnFloat(budget - totalSum);
+    tBudget = "¥" + tBudget.toString();
+}
 textPay.innerText = tPay;
 textGet.innerText = tGet;
+textBudget.innerText = tBudget;
 
 longClick.addEventListener('touchstart', function(){
     if(timeCheck){
@@ -262,4 +273,84 @@ deleteCancel.addEventListener('click', function(){
 var btnSearch = document.getElementById("search");
 btnSearch.addEventListener('click', function(){
     window.location.href = "search.html";
+})
+
+//设置预算
+
+var budgetClose = document.getElementById("budget-close");
+var budgetContent = document.getElementById("budget");
+var budgetOpen = document.getElementById("text-budget");
+var budgetConfirm = document.getElementById("btn-budget");
+var budgetText = document.getElementById("budget-input");
+
+budgetClose.addEventListener('click', function(){
+    budgetContent.style.display = "none";
+})
+
+budgetOpen.addEventListener('click', function(el){
+    el.stopPropagation();
+    budgetContent.style.display = "block";
+})
+
+budgetConfirm.addEventListener('click', function(){
+    if(budgetText.value === ""){
+        if(localStorage.getItem("budget")){
+            localStorage.removeItem("budget");
+        }
+    }
+    else{
+        budget = Number(budgetText.value);
+        localStorage.setItem("budget", budget.toString());
+    }
+    window.location.href = "main.html";
+})
+
+//导出数据
+
+var btnSettings = document.getElementById("settings");
+
+btnSettings.addEventListener('click', function(){
+    let t = localStorage.getItem("times");
+    let jsonData = [];
+    let k = 0;
+    for(let i = t; i >= 1; i--){
+        let info = localStorage.getItem("list-" + i.toString());
+        if(info === null){
+            continue;
+        }
+        let data = JSON.parse(info);
+        let picType;
+        if(data.type === "支出"){
+            picType = text[data.picType];
+        }
+        else{
+            picType = textR[data.picType];
+        }
+        let obj = {
+            sum: data.sum,
+            type: data.type,
+            picType: picType,            
+            remarks: data.remarks,
+            time: data.dateText
+        }
+        k++;
+        jsonData[k] = obj;
+    }
+    let str = `金额,类型,种类,备注,时间\n`;
+    for(let i = 1; i <= k; i++){
+        for(let item in jsonData[i]){
+            str += `${jsonData[i][item] + '\t'},`;     
+        }
+        str += '\n';
+    }
+    console.log(str);
+    let uri = 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(str);
+
+    let link = document.createElement("a");
+    link.href = uri;
+
+    link.download =  "账单数据表.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 })

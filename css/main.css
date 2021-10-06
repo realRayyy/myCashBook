@@ -157,6 +157,10 @@ header img{
     flex: 1;
 }
 
+.text-right{
+    z-index: 2;
+}
+
 .text-right::before{
     content: "预算剩余  ";
     color: #9b9b9b;
@@ -500,4 +504,94 @@ header img{
 
 .delete-btn > p{
     color: #018560;
+}
+
+.budget{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: .8s;
+    display: none;
+}
+
+.budget-content{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    top: 81%;  
+    height: 22%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.budget-top{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.budget-top > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 1rem;
+}
+
+.budget-top p{
+    text-align: center;
+    font-size: 22px;
+}
+
+.budget-close{
+    position: relative;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.budget-top img{
+    height: 50%;
+    width: auto;
+}
+
+.budget-middle{
+    display: flex;
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.budget-input{
+    margin-left: 0.25rem;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+
+.budget-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-budget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    margin-top: 1.5rem;
+    font-size: 20px;
+    border-radius: 50px;
+    width: 90%;
+    background-color: #0f9570;
+    color: white;
+}
+
+.btn-budget:active{
+    background-color: #018560;
 }

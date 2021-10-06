@@ -86,8 +86,8 @@ ht = Number(ht);
 var divHistory = document.getElementById("history");
 
 for(let i = 1; i <= ht; i++){
-    let text = localStorage.getItem("history-" + i.toString());
-    if(text === null){
+    let t = localStorage.getItem("history-" + i.toString());
+    if(t === null){
         continue;
     }
     let divMain = document.createElement("div");
@@ -96,7 +96,7 @@ for(let i = 1; i <= ht; i++){
 
     let divText = document.createElement("div");
     divText.className = "history-text";
-    let textNode = document.createTextNode(text);
+    let textNode = document.createTextNode(t);
     divText.appendChild(textNode);
     divMain.appendChild(divText);
 
@@ -113,8 +113,8 @@ for(let i = 1; i <= ht; i++){
     divBtn.appendChild(divImg);
 
     divMain.addEventListener('click', function(){
-        input.value = text;
-        let inputText = text;
+        input.value = t;
+        let inputText = t;
         historyContent.style.display = "none";
         for(let i = 1; i <= t; i++){
             let info = localStorage.getItem("list-" + i);
@@ -270,9 +270,6 @@ input.addEventListener('change', function(){
             continue;
         }
         let data = JSON.parse(info);
-        if(data.dayCheck !== dateToday.getDay()){
-            
-        }
         let picT;
         if(data.picType < 10){
             picT = "0" + data.picType.toString();
@@ -326,7 +323,13 @@ input.addEventListener('change', function(){
         divRight.appendChild(divTextTop);
 
         let divTextBottom = document.createElement("p");
-        let TextBottom = document.createTextNode("今天 " + data.dateTime);
+        let TextBottom;
+        if(data.dayCheck === dateToday.getDay()){
+            TextBottom = document.createTextNode("今天 " + data.dateTime);
+        }
+        else{
+            TextBottom = document.createTextNode(data.dateDay);
+        }
         divTextBottom.className = "list-date";
         divTextBottom.appendChild(TextBottom);
         divRight.appendChild(divTextBottom);

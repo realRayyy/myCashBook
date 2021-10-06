@@ -24,7 +24,7 @@
         <div class="content-middle">
             <p class="text-left" id="text-left">暂无收入</p>
             <p class="text-middle"></p>
-            <p class="text-right" id="text-right">未设置预算</p>
+            <div id="text-budget" style="z-index: 3;"><p class="text-right" id="text-right">未设置预算</p></div>
         </div>
         <div class="content-bottom">
             <img src="icon/check.png">
@@ -32,8 +32,8 @@
 
     </div>
     <div class="money-title">
-        <p class="text-pay">0.00元</p>
-        <p class="text-get">0.00元</p>
+        <p class="text-pay" id="text-pay">0.00元</p>
+        <p class="text-get" id="text-get">0.00元</p>
     </div>
     <div class="list" id="list">
         
@@ -78,6 +78,22 @@
                 <div class="delete-btn" id="delete-confirm">
                     <p>删除</p>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="budget" id="budget">
+        <div class="budget-content">
+            <div class="budget-top">
+                <div></div>
+                <div></div>
+                <div style="flex: 1;"><p>设置预算</p></div>
+                <div class="budget-close" id="budget-close"><img src="icon/close.png"></div>
+            </div>
+            <div class="budget-middle">
+                <p style="font-size: 20px;">¥</p><input class="budget-input" id="budget-input" placeholder="输入本月预算">
+            </div>
+            <div class="budget-bottom">
+                <div class="btn-budget" id="btn-budget"><p>确定</p></div>
             </div>
         </div>
     </div>

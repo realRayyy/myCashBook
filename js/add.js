@@ -438,7 +438,7 @@ else{
 //关闭页面 (需要完善)
 
 btnClose.addEventListener('click', function(){
-    window.location.href = "details.html";
+    window.location.href = "main.html";
 })
 
 // 界面切换

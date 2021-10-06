@@ -189,3 +189,18 @@ btnDeleteConfirm.addEventListener('touchend' ,function(el){
     clearTimeout(deleteConfirmTimer);
     deleteConfirmTimer = setTimeout("removeRipple(btnDeleteConfirm, cirDeleteConfirm)", 100);
 });
+
+var btnSetBudget = document.getElementById("budget-close");
+var cirSetBudget;
+var setBudgetTimer;
+
+btnSetBudget.addEventListener('touchstart', function(el){
+    el.stopPropagation();
+    cirSetBudget = ripple(el, btnSetBudget, 0, 0);
+});
+
+btnSetBudget.addEventListener('touchend' ,function(el){
+    el.stopPropagation();
+    clearTimeout(setBudgetTimer);
+    setBudgetTimer = setTimeout("removeRipple(btnSetBudget, cirSetBudget)", 100);
+});
