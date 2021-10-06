@@ -26,6 +26,7 @@ header{
     background-color: #ebeff2;
     height: 8%;
     width: 100%;
+    z-index: 3;
 }
 
 header p{
@@ -158,6 +159,7 @@ header img{
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin: auto;
 }
 
 .content-middle div img{
@@ -180,6 +182,7 @@ header img{
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin: auto;
 }
 
 .content-bottom div img{

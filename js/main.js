@@ -65,6 +65,7 @@ function returnFloat(value){
 }
 
 var text = ["", "其它", "餐饮", "交通", "购物", "服饰", "日用品", "娱乐", "食材", "零食", "烟茶酒"];
+var textR = ["", "其它", "薪资", "奖金", "借入", "收债", "利息收入", "投资回收", "投资收益", "意外所得"];
 var div = [], cirDiv = [];
 
 function remove(a){
@@ -89,7 +90,7 @@ function createRipple(a){
 
 var list = document.getElementById("list");
 var t = localStorage.getItem("times");
-var totalSum = 0;
+var totalSum = 0, totalSumR = 0;
 var longClick = document.getElementById("long-click");
 var timeCheck = 0;
 var dateToday = new Date();
@@ -122,11 +123,22 @@ for(let i = 1; i <=t; i++){
 
     let divImg = document.createElement("img");
     divImg.className = "list-img";
-    divImg.src = "icon/" + picT + "_active.png";
+    if(data.type === "支出"){
+        divImg.src = "icon/" + picT + "_active.png";
+    }
+    else{
+        divImg.src = "icon/r-" + picT + "_active.png";
+    }
     divLeft.appendChild(divImg);
 
     let divTextLeft = document.createElement("p");
-    let TextLeft = document.createTextNode(text[data.picType]);
+    let TextLeft
+    if(data.type === "支出"){
+        TextLeft = document.createTextNode(text[data.picType]);
+    }
+    else{
+        TextLeft = document.createTextNode(textR[data.picType]);
+    }
     divTextLeft.appendChild(TextLeft);
     divLeft.appendChild(divTextLeft);
 
@@ -153,7 +165,14 @@ for(let i = 1; i <=t; i++){
     //增加波纹效果
     div[i] = divContent;
     createRipple(i);
-    totalSum += data.sum;
+
+    // 计算总额
+    if(data.type === "支出"){
+        totalSum += data.sum;
+    }
+    else{
+        totalSumR += data.sum;
+    }
 
     //增加页面跳转
 
@@ -190,7 +209,10 @@ for(let i = 1; i <=t; i++){
 
 tPay = returnFloat(totalSum);
 tPay = "¥" + tPay.toString();
+tGet = returnFloat(totalSumR);
+tGet = "¥" + tGet.toString();
 textPay.innerText = tPay;
+textGet.innerText = tGet;
 
 longClick.addEventListener('touchstart', function(){
     if(timeCheck){
@@ -233,4 +255,11 @@ deleteConfirm.addEventListener('click', function(){
 var deleteCancel = document.getElementById("delete-cancel");
 deleteCancel.addEventListener('click', function(){
     window.location.href = "main.html";
+})
+
+//搜索跳转
+
+var btnSearch = document.getElementById("search");
+btnSearch.addEventListener('click', function(){
+    window.location.href = "search.html";
 })

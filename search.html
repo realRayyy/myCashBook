@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/search.css">
+    <link rel="stylesheet" type="text/css" href="css/btn-click.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="back" id="back"><img src="icon/back.png"></div>
+        <div style="flex: 1;"><input class="input" id="input" placeholder="搜索消费记录"></div>   
+    </header>
+    <div class="history-content" id="history-content">
+        <div class="history" id="history">
+            
+        </div>
+        <div class="clear-history" id="clear-history"><p>清除所有</p></div>
+    </div>
+    <div class="list" id="list">
+        
+    </div>
+
+    <div class="long-click" id="long-click">
+        <div class="long-click-content">
+            <div class="long-click-text" id="long-click-change"><p>修改</p></div>
+            <div class="long-click-text" id="long-click-delete"><p>删除</p></div>
+        </div>
+    </div>
+    <div class="alert-delete" id="alert-delete">
+        <div class="alert-delete-content">
+            <div class="delete-top"><p>确定删除？</p></div>
+            <div class="delete-bottom">
+                <div class="delete-btn" id="delete-cancel">
+                    <p>取消</p>
+                </div>
+                <div class="delete-btn" id="delete-confirm">
+                    <p>删除</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

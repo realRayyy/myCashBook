@@ -75,6 +75,7 @@ btnContent.addEventListener('touchend' ,function(el){
 // 设置页面内容
 
 var text = ["", "其它", "餐饮", "交通", "购物", "服饰", "日用品", "娱乐", "食材", "零食", "烟茶酒"];
+var textR = ["", "其它", "薪资", "奖金", "借入", "收债", "利息收入", "投资回收", "投资收益", "意外所得"];
 var now = localStorage.getItem("detailNow");
 var info = localStorage.getItem("list-" + now);
 var data = JSON.parse(info);
@@ -87,10 +88,15 @@ else{
 }
 
 var img = document.getElementById("content-img");
-img.src = "icon/" + picT + "_active.png";
-
 var textTop = document.getElementById("text-top");
-textTop.innerText = text[data.picType];
+if(data.type === "支出"){
+    img.src = "icon/" + picT + "_active.png";
+    textTop.innerText = text[data.picType];
+}
+else{
+    img.src = "icon/r-" + picT + "_active.png";
+    textTop.innerText = textR[data.picType];
+}
 
 var textSum = document.getElementById("text-sum");
 textSum.innerText = "¥" + data.sum;
