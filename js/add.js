@@ -424,15 +424,16 @@ if(addNow !== null){
     dateR.innerText = dataNow.dateText;
 }
 else{
+    let month = dateNow.getMonth() + 1;
     date = document.getElementById("remarks-date");
     dateR = document.getElementById("r-remarks-date");
-    dateText = dateNow.getFullYear() + "年" + dateNow.getMonth() + "月" + dateNow.getDay() + "日" 
+    dateText = dateNow.getFullYear() + "年" + month + "月" + dateNow.getDate() + "日" 
                      + numToStr(dateNow.getHours()) + ":" + numToStr(dateNow.getMinutes());
     date.innerText = dateText;      
     dateR.innerText = dateText;          
-    dateDay = dateNow.getMonth() + "月" + dateNow.getDay() + "日";
+    dateDay = month + "月" + dateNow.getDate() + "日";
     dateTime = numToStr(dateNow.getHours()) + ":" + numToStr(dateNow.getMinutes());
-    dayCheck = dateNow.getDay();
+    dayCheck = dateNow.getDate();
 }
 
 //关闭页面 (需要完善)
@@ -474,4 +475,16 @@ mainRight.addEventListener('touchend', function(el){
         headerLeft.className = "header-active";
         main.style.transform = "none";
     }
+})
+
+headerRight.addEventListener('click', function(){
+    headerLeft.className = "header-notactive";
+    headerRight.className = "header-active";
+    main.style.transform = "translateX(-50%)";
+})
+
+headerLeft.addEventListener('click', function(){
+    headerRight.className = "header-notactive";
+    headerLeft.className = "header-active";
+    main.style.transform = "none";
 })

@@ -9,21 +9,28 @@ var textBudget = document.getElementById("text-right");
 var eye = document.getElementById("eye");
 var tPay, tGet, tBudget, clickTimes = 0, budget = -1;
 
-eye.addEventListener('click', function(){
-    if(clickTimes === 0){
+var eyeHide;
+if(!localStorage.getItem("eyeHide")){
+    localStorage.setItem("eyeHide", "0");
+}
+
+eye.addEventListener('click', function(el){
+    el.stopPropagation();
+    eyeHide = localStorage.getItem("eyeHide");
+    if(eyeHide === "0"){
         tPay = textPay.innerText;
         textPay.innerText = "****";
         tGet = textGet.innerText;
         textGet.innerText = "****";
         tBudget = textBudget.innerText;
         textBudget.innerText = "****";
-        clickTimes = 1;
+        localStorage.setItem("eyeHide", "1");
     }
     else{
         textPay.innerText = tPay;
         textGet.innerText = tGet;
         textBudget.innerText = tBudget;
-        clickTimes = 0;
+        localStorage.setItem("eyeHide", "0");
     }
 })
 
@@ -94,6 +101,7 @@ var totalSum = 0, totalSumR = 0;
 var longClick = document.getElementById("long-click");
 var timeCheck = 0;
 var dateToday = new Date();
+var monthSum = 0, monthSumR = 0;
 
 for(let i = t; i >= 1; i--){
     let info = localStorage.getItem("list-" + i.toString());
@@ -101,7 +109,13 @@ for(let i = t; i >= 1; i--){
         continue;
     }
     let data = JSON.parse(info);
-    if(data.dayCheck !== dateToday.getDay()){
+    if(data.type === "支出"){
+        monthSum += data.sum;
+    }
+    else{
+        monthSumR += data.sum;
+    }
+    if(data.dayCheck !== dateToday.getDate()){
         continue;
     }
     let picT;
@@ -221,9 +235,19 @@ else{
     tBudget = returnFloat(budget - totalSum);
     tBudget = "¥" + tBudget.toString();
 }
-textPay.innerText = tPay;
-textGet.innerText = tGet;
-textBudget.innerText = tBudget;
+tPay = "¥" + returnFloat(monthSum).toString();
+tGet = "¥" + returnFloat(monthSumR).toString();
+if(localStorage.getItem("eyeHide") === "0"){
+    textPay.innerText = tPay;
+    textGet.innerText = tGet;
+    textBudget.innerText = tBudget;
+}
+else{
+    textPay.innerText = "****";
+    textGet.innerText = "****";
+    textBudget.innerText = "****";
+}
+
 
 longClick.addEventListener('touchstart', function(){
     if(timeCheck){
@@ -343,7 +367,6 @@ btnSettings.addEventListener('click', function(){
         }
         str += '\n';
     }
-    console.log(str);
     let uri = 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(str);
 
     let link = document.createElement("a");
@@ -353,4 +376,10 @@ btnSettings.addEventListener('click', function(){
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+})
+
+var content = document.getElementById("content");
+
+content.addEventListener('click', function(){
+    window.location.href = "sumDetails.html";
 })

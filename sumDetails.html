@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/sumDetails.css">
+    <link rel="stylesheet" type="text/css" href="css/btn-click.css">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <img src="icon/close.png">
+        <img id="close" src="icon/close.png">
         <p>详情</p>  
         <div></div>   
         <img src="icon/date.png">
@@ -19,10 +20,10 @@
             <p>2021年10月账单</p>
         </div>
         <div class="content-middle">
-            <p>共0笔支出，¥0.00元</p>
+            <p id="content-pay">共0笔支出，¥0.00元</p>
         </div>
         <div class="content-bottom">
-            <p>共0笔支出，¥0.00元</p>
+            <p id="content-get">共0笔收入，¥0.00元</p>
         </div>
     </div>
     <div class="btn-switch">
@@ -32,6 +33,12 @@
         <div class="changeTime"><p> &emsp; 切换年账单</p><img src="icon/switch.png"></div>
     </div>
     <div class="barChart"></div>
-    <div class="pieChart"></div>
+    <div class="pieChart" id="canvasDiv"></div>
+    <div class="list" id="list">
+        
+    </div>
+    
+    <script type="text/javascript" src="js/sumDetails.js"></script>
+    
 </body>
 </html>

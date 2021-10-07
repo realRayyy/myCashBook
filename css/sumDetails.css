@@ -161,3 +161,53 @@ header img:nth-child(1){
     width: 95%;
     background-color: white;
 }
+
+.list{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 95%;
+    width: 100%;
+}
+
+.list-content{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    border-bottom: 1px solid grey;
+}   
+
+.list-content > div{
+    margin: 0 1rem;
+}
+
+.list-left{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list-left img{
+    margin-right: 0.5rem;
+    height: 1.5rem;
+    width: auto;
+}
+
+.list-right{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.list-right img{
+    margin-left: 0.5rem;
+    height: 1.5rem;
+    width: auto;
+}

@@ -3,13 +3,9 @@
     margin: 0;
 }
 
-html{
-    overflow: hidden;
-}
 
 body{
     background-color: #f5f4f9;
-    overflow: hidden;
 }
 
 header{
@@ -86,6 +82,7 @@ header img{
 }
 
 .eye{
+    z-index: 2;
     position: absolute;
     right: 10%;
     top: 75%;

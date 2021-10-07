@@ -125,9 +125,6 @@ for(let i = 1; i <= ht; i++){
                 continue;
             }
             let data = JSON.parse(info);
-            if(data.dayCheck !== dateToday.getDay()){
-                
-            }
             let picT;
             if(data.picType < 10){
                 picT = "0" + data.picType.toString();
@@ -181,7 +178,13 @@ for(let i = 1; i <= ht; i++){
             divRight.appendChild(divTextTop);
     
             let divTextBottom = document.createElement("p");
-            let TextBottom = document.createTextNode("今天 " + data.dateTime);
+            let TextBottom;
+            if(data.dayCheck == dateToday.getDate()){
+                TextBottom = document.createTextNode("今天 " + data.dateTime);
+            }
+            else{
+                TextBottom = document.createTextNode(data.dateDay);
+            }
             divTextBottom.className = "list-date";
             divTextBottom.appendChild(TextBottom);
             divRight.appendChild(divTextBottom);
